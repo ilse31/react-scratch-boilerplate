@@ -61,6 +61,10 @@ const config = (): Configuration => {
             },
           ],
         },
+        {
+          test: /\.css$/i,
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
+        },
       ],
     },
     resolve: {
