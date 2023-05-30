@@ -1,10 +1,11 @@
 import path from "path";
-import { Configuration } from "webpack";
+import { Configuration, webpack } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpackDevServer from "webpack-dev-server";
 
-const IMAGE_SIZE_LIMIT = 10_000;
+const IMAGE_SIZE_LIMIT = 10000000;
 
 const config = (): Configuration => {
   return {
@@ -15,6 +16,11 @@ const config = (): Configuration => {
       filename: "[name].js",
       chunkFilename: "static/js/[name].[ext]",
       assetModuleFilename: "static/media/[name].[ext]",
+    },
+    devServer: {
+      compress: true,
+      port: 3000,
+      historyApiFallback: true,
     },
     module: {
       rules: [
@@ -63,10 +69,12 @@ const config = (): Configuration => {
         },
         {
           test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader"],
+          include: path.resolve(__dirname, "src"),
+          use: ["style-loader", "css-loader", "postcss-loader"],
         },
       ],
     },
+    devtool: "inline-source-map",
     resolve: {
       extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
       // absolute import paths
@@ -84,6 +92,9 @@ const config = (): Configuration => {
         chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
       }),
     ],
+    performance: {
+      hints: false,
+    },
     optimization: {
       minimize: true,
       splitChunks: {
