@@ -1,5 +1,5 @@
 {
-  "name": "react-scratch-boilerplate",
+  "name": "react-dnd",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -64,6 +64,8 @@
     "css-minimizer-webpack-plugin": "^5.0.0",
     "dotenv": "^16.0.3",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
     "swr": "^2.1.3"

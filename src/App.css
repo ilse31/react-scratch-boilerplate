@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
+/* .App {
   @apply items-center;
 }
 
@@ -12,4 +12,23 @@
 
 .App-link {
   @apply text-blue-500;
+} */
+
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Pictures {
+  margin: 10px;
+}
+img {
+  margin: 5px;
+}
+
+.Board {
+  width: 1000px;
+  height: 500px;
+  border: 2px solid black;
 }
