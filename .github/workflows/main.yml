@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 17
+          node-version: 14
 
       - name: Install dependencies
         run: npm install
@@ -29,6 +29,9 @@ jobs:
       - name: Merge to master
         if: success()
         run: |
+          git config user.name "ilse31"
+          git config user.email "ilhamprazsetyo33@gmail.com"
+          git remote update
           git checkout master
           git merge ${{ github.ref }}
           git push origin master
