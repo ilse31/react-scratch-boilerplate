@@ -1,0 +1,34 @@
+name: Automated Testing and Merging
+
+on:
+  push:
+    branches:
+      - feature/*
+      - bug/*
+      - hotfix/*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 17
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Merge to master
+        if: success()
+        run: |
+          git checkout master
+          git merge ${{ github.ref }}
+          git push origin master
