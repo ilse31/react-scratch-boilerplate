@@ -26,12 +26,12 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Merge to master
+      - name: Merge to development
         if: success()
         run: |
           git config user.name "ilse31"
           git config user.email "ilhamprazsetyo33@gmail.com"
           git remote update
           git checkout master
-          git merge ${{ github.ref }}
+          git merge ${{ github.ref }} --allow-unrelated-histories
           git push origin master
