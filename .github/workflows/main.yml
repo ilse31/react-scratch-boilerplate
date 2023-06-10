@@ -38,6 +38,5 @@ jobs:
           git config user.email $GIT_EMAIL
           git remote update
           git checkout master
-          git pull --rebase origin master
-          git rebase ${{ github.ref }}
+          git merge ${{ github.ref }} --allow-unrelated-histories
           git push origin master
