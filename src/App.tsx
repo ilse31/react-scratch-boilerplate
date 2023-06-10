@@ -13,7 +13,7 @@ const App = (props: Props) => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            Learn Reacts
+            Learn React
           </a>
           {" | "}
           <a
