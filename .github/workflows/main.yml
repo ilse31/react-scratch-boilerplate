@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Merge to development
+      - name: Merge to dev
         if: success()
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
@@ -36,7 +36,23 @@ jobs:
         run: |
           git config user.name $GIT_USERNAME
           git config user.email $GIT_EMAIL
-          git remote update
-          git checkout master
-          git merge ${{ github.ref }} --allow-unrelated-histories
-          git push origin master
+          git fetch origin dev:dev
+          git checkout dev
+          git merge ${{ github.ref }} --no-commit --no-ff
+          git diff --name-only --diff-filter=U | xargs git checkout --theirs
+          git commit -a -m "Merge branch '${{ github.ref }}' into dev" --quiet
+          git push origin dev
+
+      # - name: Merge to master
+      #   if: success() && startsWith(github.ref, 'refs/heads/feature/')
+      #   env:
+      #     GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+      #     GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+      #   run: |
+      #     git config user.name $GIT_USERNAME
+      #     git config user.email $GIT_EMAIL
+      #     git checkout master
+      #     git pull origin master
+      #     git merge dev --no-commit --no-ff
+      #     git commit -a -m "Merge branch 'dev' into master" --quiet
+      #     git push origin master
