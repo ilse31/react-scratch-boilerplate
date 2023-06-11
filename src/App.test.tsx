@@ -6,7 +6,7 @@ import "@testing-library/jest-dom/extend-expect";
 test("renders App component", () => {
   render(<App />);
 
-  const learnReactLink = screen.getByText(/Learn Reacts/i);
+  const learnReactLink = screen.getByText(/Learn React/i);
   expect(learnReactLink).toBeInTheDocument();
 
   const learnTypescriptLink = screen.getByText(/Learn Typescript/i);

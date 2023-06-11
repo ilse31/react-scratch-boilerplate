@@ -44,6 +44,7 @@ jobs:
           git commit -a -m "Merge branch '${{ github.ref }}' into dev" --quiet
           git push origin dev
 
+
       # - name: Merge to master
       #   if: success() && startsWith(github.ref, 'refs/heads/feature/')
       #   env:
