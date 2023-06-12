@@ -39,7 +39,7 @@ jobs:
           git fetch origin dev:dev
           git checkout dev
 
-          git merge ${{ github.ref }} --no-commit --no-ff
+          git merge ${{ github.ref }} --no-commit --no-ff --allow-unrelated-histories
           git diff --name-only --diff-filter=U | xargs git checkout --theirs
           git commit -a -m "Merge branch '${{ github.ref }}' into dev" --quiet
           git push origin dev
