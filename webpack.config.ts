@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpackDevServer from "webpack-dev-server";
-
+import WorkboxPlugin, { GenerateSW } from "workbox-webpack-plugin";
 const IMAGE_SIZE_LIMIT = 10000000;
 
 const config = (): Configuration => {
@@ -86,6 +86,11 @@ const config = (): Configuration => {
       new HtmlWebpackPlugin({
         template: "index.html",
         inject: true,
+      }),
+      new WorkboxPlugin.GenerateSW({
+        clientsClaim: true,
+        skipWaiting: true,
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       }),
       new MiniCssExtractPlugin({
         filename: "static/css/[name].[contenthash:8].css",
