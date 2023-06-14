@@ -87,11 +87,11 @@ const config = (): Configuration => {
         template: "index.html",
         inject: true,
       }),
-      new WorkboxPlugin.GenerateSW({
-        clientsClaim: true,
-        skipWaiting: true,
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-      }),
+      // new WorkboxPlugin.GenerateSW({
+      //   clientsClaim: true,
+      //   skipWaiting: true,
+      //   maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+      // }),
       new MiniCssExtractPlugin({
         filename: "static/css/[name].[contenthash:8].css",
         chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
