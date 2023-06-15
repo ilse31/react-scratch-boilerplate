@@ -28,6 +28,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "react-error-overlay": "6.0.9",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
