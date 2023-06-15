@@ -21,7 +21,8 @@
     "postgit": "git push --all",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "typescript": "tsc --project tsconfig.json --noEmit"
+    "typescript": "tsc --project tsconfig.json --noEmit",
+    "preinstall": "npx npm-force-resolutions"
   },
   "keywords": [],
   "author": "",
