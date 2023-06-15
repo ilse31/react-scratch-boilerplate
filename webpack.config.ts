@@ -1,5 +1,5 @@
 import path from "path";
-import { Configuration, webpack } from "webpack";
+import { Configuration, DefinePlugin, webpack } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -92,6 +92,11 @@ const config = (): Configuration => {
       //   skipWaiting: true,
       //   maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       // }),
+      new DefinePlugin({
+        "process.env.PUBLIC_URL": JSON.stringify(
+          "https://bejewelled-starlight-7d6def.netlify.app/"
+        ),
+      }),
       new MiniCssExtractPlugin({
         filename: "static/css/[name].[contenthash:8].css",
         chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
