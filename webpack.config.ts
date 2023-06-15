@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpackDevServer from "webpack-dev-server";
+import TerserPlugin from "terser-webpack-plugin";
 import WorkboxPlugin, { GenerateSW } from "workbox-webpack-plugin";
 const IMAGE_SIZE_LIMIT = 10000000;
 
@@ -121,7 +122,7 @@ const config = (): Configuration => {
           },
         },
       },
-      minimizer: [new CssMinimizerPlugin()],
+      minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
     },
   };
 };
