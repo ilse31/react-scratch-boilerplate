@@ -87,11 +87,11 @@ const config = (): Configuration => {
         template: "index.html",
         inject: true,
       }),
-      // new WorkboxPlugin.GenerateSW({
-      //   clientsClaim: true,
-      //   skipWaiting: true,
-      //   maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-      // }),
+      new WorkboxPlugin.GenerateSW({
+        clientsClaim: true,
+        skipWaiting: true,
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+      }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
           "https://bejewelled-starlight-7d6def.netlify.app/"
