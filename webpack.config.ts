@@ -92,6 +92,7 @@ const config = (): Configuration => {
         clientsClaim: true,
         skipWaiting: true,
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+        
       }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
