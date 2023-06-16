@@ -88,11 +88,10 @@ const config = (): Configuration => {
         template: "index.html",
         inject: true,
       }),
-      new WorkboxPlugin.GenerateSW({
+      new GenerateSW({
         clientsClaim: true,
         skipWaiting: true,
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-        
       }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
@@ -123,7 +122,29 @@ const config = (): Configuration => {
           },
         },
       },
-      minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+      minimizer: [
+        new CssMinimizerPlugin({
+          minimizerOptions: {
+            preset: [
+              "default",
+              {
+                discardComments: { removeAll: true },
+              },
+            ],
+          },
+        }),
+        new TerserPlugin({
+          include: /\/node_modules\/(react-router-dom|react|react-dom)/,
+          minify: TerserPlugin.esbuildMinify,
+          terserOptions: {
+            format: {
+              comments: false,
+            },
+          },
+          extractComments: false,
+          parallel: true,
+        }),
+      ],
     },
   };
 };

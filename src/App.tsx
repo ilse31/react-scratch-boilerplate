@@ -1,7 +1,7 @@
 import React from "react";
 type Props = {};
 
-const App = (props: Props) => {
+const App: React.FC = (props: Props) => {
   return (
     <div className='App'>
       <header className='App-header'>
