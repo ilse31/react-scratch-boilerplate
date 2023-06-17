@@ -1,12 +1,14 @@
 import path from "path";
-import { Configuration, DefinePlugin, webpack } from "webpack";
+import { Configuration, DefinePlugin } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpackDevServer from "webpack-dev-server";
 import TerserPlugin from "terser-webpack-plugin";
-import WorkboxPlugin, { GenerateSW } from "workbox-webpack-plugin";
+import { GenerateSW } from "workbox-webpack-plugin";
+
 const IMAGE_SIZE_LIMIT = 10000000;
+const isDevelopment = process.env.NODE_ENV === "development";
 
 const config = (): Configuration => {
   return {
@@ -17,10 +19,11 @@ const config = (): Configuration => {
       filename: "[name].js",
       chunkFilename: "static/js/[name].[ext]",
       assetModuleFilename: "static/media/[name].[ext]",
+      publicPath: "/",
     },
     devServer: {
       compress: true,
-      port: 4000,
+      port: 3000,
       historyApiFallback: true,
     },
     module: {
@@ -88,11 +91,13 @@ const config = (): Configuration => {
         template: "index.html",
         inject: true,
       }),
-      new GenerateSW({
-        clientsClaim: true,
-        skipWaiting: true,
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-      }),
+      isDevelopment
+        ? null
+        : new GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+          }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
           "https://bejewelled-starlight-7d6def.netlify.app/"
@@ -123,16 +128,7 @@ const config = (): Configuration => {
         },
       },
       minimizer: [
-        new CssMinimizerPlugin({
-          minimizerOptions: {
-            preset: [
-              "default",
-              {
-                discardComments: { removeAll: true },
-              },
-            ],
-          },
-        }),
+        new CssMinimizerPlugin(),
         new TerserPlugin({
           include: /\/node_modules\/(react-router-dom|react|react-dom)/,
           minify: TerserPlugin.esbuildMinify,
