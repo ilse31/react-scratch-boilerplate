@@ -1,14 +1,13 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import App from "./App";
-import "@testing-library/jest-dom/extend-expect";
+import Routed from "./routes";
 
-test("renders App component", () => {
-  render(<App />);
+jest.mock("./routes", () => jest.fn());
 
-  const learnReactLink = screen.getByText(/Learn React/i);
-  expect(learnReactLink).toBeInTheDocument();
-
-  const learnTypescriptLink = screen.getByText(/Learn Typescript/i);
-  expect(learnTypescriptLink).toBeInTheDocument();
+describe("App", () => {
+  it("should render the Routed component", () => {
+    render(<App />);
+    expect(Routed).toHaveBeenCalledTimes(1);
+  });
 });

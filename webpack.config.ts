@@ -91,13 +91,13 @@ const config = (): Configuration => {
         template: "index.html",
         inject: true,
       }),
-      isDevelopment
-        ? null
-        : new GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true,
-            maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-          }),
+      // isDevelopment
+      //   ? null
+      //   : new GenerateSW({
+      //       clientsClaim: true,
+      //       skipWaiting: true,
+      //       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+      //     }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
           "https://bejewelled-starlight-7d6def.netlify.app/"

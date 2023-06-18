@@ -10,6 +10,13 @@ const ButtonVariant = [
   "outline",
   "ghost",
   "warning",
+  "sky",
+  "rose",
+  "pink",
+  "purple",
+  "violet",
+  "indigo",
+  "cyan",
 ] as const;
 const ButtonSize = ["sm", "base", "lg"] as const;
 
@@ -21,7 +28,6 @@ type ButtonProps = {
   rightIcon?: IconType;
   leftIconClassName?: string;
   rightIconClassName?: string;
-  color?: string;
 } & React.ComponentPropsWithRef<"button">;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -37,7 +43,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       rightIcon: RightIcon,
       leftIconClassName,
       rightIconClassName,
-      color,
       ...rest
     },
     ref
@@ -50,10 +55,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          "inline-flex items-center justify-center rounded-lg font-medium",
+          "inline-flex items-center justify-center rounded-md font-medium",
           "focus:outline-none focus-visible:ring",
           "shadow-sm",
-          "transition-colors duration-75",
+          "transition-colors duration-300",
+          "focus:scale-95",
           //#region  //*=========== Size ===========
           [
             size === "lg" && [
@@ -114,14 +120,63 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               "shadow-none",
               "hover:bg-primary-50 focus-visible:ring-primary-400 active:bg-primary-100 disabled:bg-primary-100",
             ],
-            // variant === color && [
-            //   `bg-${color}-500 text-white`,
-            //   "border border-secondary-600",
-            //   "hover:bg-secondary-600 hover:text-white",
-            //   "active:bg-secondary-700",
-            //   "disabled:bg-secondary-700",
-            //   "focus-visible:ring-secondary-400",
-            // ],
+            variant === "sky" && [
+              "bg-sky-500 text-white",
+              "border border-sky-600",
+              "hover:bg-sky-600 hover:text-white",
+              "active:bg-sky-700",
+              "disabled:bg-sky-700",
+              "focus-visible:ring-sky-400",
+              "focus:ring-offset-sky-100",
+            ],
+            variant === "rose" && [
+              "bg-rose-500 text-white",
+              "border border-rose-600",
+              "hover:bg-rose-600 hover:text-white",
+              "active:bg-rose-700",
+              "disabled:bg-rose-700",
+              "focus-visible:ring-rose-400",
+            ],
+            variant === "pink" && [
+              "bg-pink-500 text-white",
+              "border border-pink-600",
+              "hover:bg-pink-600 hover:text-white",
+              "active:bg-pink-700",
+              "disabled:bg-pink-700",
+              "focus-visible:ring-pink-400",
+            ],
+            variant === "purple" && [
+              "bg-purple-500 text-white",
+              "border border-purple-600",
+              "hover:bg-purple-600 hover:text-white",
+              "active:bg-purple-700",
+              "disabled:bg-purple-700",
+              "focus-visible:ring-purple-400",
+            ],
+            variant === "violet" && [
+              "bg-violet-500 text-white",
+              "border border-violet-600",
+              "hover:bg-violet-600 hover:text-white",
+              "active:bg-violet-700",
+              "disabled:bg-violet-700",
+              "focus-visible:ring-violet-400",
+            ],
+            variant === "indigo" && [
+              "bg-indigo-500 text-white",
+              "border border-indigo-600",
+              "hover:bg-indigo-600 hover:text-white",
+              "active:bg-indigo-700",
+              "disabled:bg-indigo-700",
+              "focus-visible:ring-indigo-400",
+            ],
+            variant === "cyan" && [
+              "bg-cyan-500 text-white",
+              "border border-cyan-600",
+              "hover:bg-cyan-600 hover:text-white",
+              "active:bg-cyan-700",
+              "disabled:bg-cyan-700",
+              "focus-visible:ring-cyan-400",
+            ],
           ],
           //#endregion  //*======== Variants ===========
           "disabled:cursor-not-allowed",
