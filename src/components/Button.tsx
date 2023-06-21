@@ -55,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          "inline-flex items-center justify-center rounded-md font-medium",
+          "inline-flex capitalize items-center justify-center rounded-md font-medium",
           "focus:outline-none focus-visible:ring",
           "shadow-sm",
           "transition-colors duration-300",

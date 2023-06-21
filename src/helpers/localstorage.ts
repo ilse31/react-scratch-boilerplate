@@ -10,3 +10,5 @@ const setLocalStorage = (key: string, value: any) => {
   if (value) return localStorage.setItem(key, valueString);
   return null;
 };
+
+export { getLocalStorage, setLocalStorage };
