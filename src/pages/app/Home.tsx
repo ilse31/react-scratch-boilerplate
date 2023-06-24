@@ -28,7 +28,9 @@ const Home = (props: Props) => {
           </a>
         </span>
         <Link to='/design-system'>Design System</Link>
-        <a href=''>See Repos</a>
+        <a href='https://github.com/ilse31/react-scratch-boilerplate'>
+          See Repos
+        </a>
       </header>
     </div>
   );

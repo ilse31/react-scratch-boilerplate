@@ -6,6 +6,8 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpackDevServer from "webpack-dev-server";
 import TerserPlugin from "terser-webpack-plugin";
 import { GenerateSW } from "workbox-webpack-plugin";
+import { WebpackManifestPlugin } from "webpack-manifest-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const IMAGE_SIZE_LIMIT = 10 * 1024; // 10kb
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -109,14 +111,51 @@ const config = (): Configuration => {
         filename: "static/css/[name].[contenthash:8].css",
         chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
       }),
+      // new WebpackManifestPlugin({
+      //   fileName: "manifest.json",
+      //   publicPath: "/",
+      // }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "public/manifest.json",
+            to: "manifest.json",
+          },
+          {
+            from: "public/robots.txt",
+            to: "robots.txt",
+          },
+          {
+            from: "public/favicon.ico",
+            to: "favicon.ico",
+          },
+          {
+            from: "public/icon-192x192.png",
+            to: "icon-192x192.png",
+          },
+          {
+            from: "public/icon-512x512.png",
+            to: "icon-512x512.png",
+          },
+          {
+            from: "public/icon-256x256",
+            to: "icon-256x256",
+          },
+          {
+            from: "public/icon-384x384",
+            to: "icon-384x384",
+          },
+        ],
+      }),
     ],
     performance: {
       hints: false,
     },
     optimization: {
       minimize: true,
+      usedExports: true,
       splitChunks: {
-        chunks: "async",
+        chunks: "all",
         maxAsyncRequests: 10,
         maxInitialRequests: 10,
         cacheGroups: {
