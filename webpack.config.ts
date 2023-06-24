@@ -21,7 +21,6 @@ const config = (): Configuration => {
       assetModuleFilename: "static/media/[name].[ext]",
       publicPath: "/",
       clean: true,
-      cssFilename: "[name].css",
     },
     devServer: {
       compress: true,
@@ -90,16 +89,17 @@ const config = (): Configuration => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "index.html",
+        template: path.resolve(__dirname, "./public/index.html"),
+        cache: false,
         inject: true,
       }),
-      // isDevelopment
-      //   ? null
-      //   : new GenerateSW({
-      //       clientsClaim: true,
-      //       skipWaiting: true,
-      //       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-      //     }),
+      isDevelopment
+        ? null
+        : new GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+          }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
           "https://bejewelled-starlight-7d6def.netlify.app/"
@@ -138,6 +138,29 @@ const config = (): Configuration => {
           terserOptions: {
             format: {
               comments: false,
+            },
+            ecma: 2015,
+            keep_classnames: false,
+            enclose: true,
+            parse: {},
+            compress: {
+              drop_console: true,
+              loops: true,
+              reduce_funcs: true,
+              unused: true,
+              dead_code: true,
+              drop_debugger: true,
+              conditionals: true,
+              evaluate: true,
+              sequences: true,
+              arguments: true,
+              arrows: true,
+              booleans: true,
+              defaults: true,
+              directives: true,
+              join_vars: true,
+              if_return: true,
+              unsafe_arrows: true,
             },
           },
           extractComments: false,

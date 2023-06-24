@@ -5,7 +5,7 @@ const Home = lazy(() => import("../pages/app/Home"));
 const HomeDesignSystem = lazy(() => import("../pages/design/HomeDesignSystem"));
 const DesignSystem = lazy(() => import("../layouts/DesignSystem"));
 const ButtonsPages = lazy(() => import("../pages/design/ButtonsPages"));
-const FormPages = lazy(() => import("../pages/design/FormPages"));
+const FormPages = lazy(() => import("../pages/design/Formpages"));
 type Props = {};
 
 const Routed = (props: Props) => {
