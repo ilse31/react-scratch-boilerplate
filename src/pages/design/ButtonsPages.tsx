@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 
 import { FiSave } from "react-icons/fi";
@@ -28,4 +28,4 @@ const ButtonsPages = (props: Props) => {
   );
 };
 
-export default memo(ButtonsPages);
+export default React.memo(ButtonsPages);

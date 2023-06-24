@@ -7,7 +7,7 @@ import webpackDevServer from "webpack-dev-server";
 import TerserPlugin from "terser-webpack-plugin";
 import { GenerateSW } from "workbox-webpack-plugin";
 
-const IMAGE_SIZE_LIMIT = 10000000;
+const IMAGE_SIZE_LIMIT = 10 * 1024; // 10kb
 const isDevelopment = process.env.NODE_ENV === "development";
 
 const config = (): Configuration => {
@@ -20,6 +20,8 @@ const config = (): Configuration => {
       chunkFilename: "static/js/[name].[ext]",
       assetModuleFilename: "static/media/[name].[ext]",
       publicPath: "/",
+      clean: true,
+      cssFilename: "[name].css",
     },
     devServer: {
       compress: true,
@@ -132,6 +134,7 @@ const config = (): Configuration => {
         new TerserPlugin({
           include: /\/node_modules\/(react-router-dom|react|react-dom)/,
           minify: TerserPlugin.esbuildMinify,
+          test: /\.js(\?.*)?$/i,
           terserOptions: {
             format: {
               comments: false,

@@ -1,12 +1,12 @@
-import React, { useEffect, memo } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import * as React from "react";
+import { Link, useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 
 type Props = {};
 
 const HomeDesignSystem = (props: Props) => {
   const location = useLocation();
-  useEffect(() => {
+  React.useEffect(() => {
     console.log(location);
   }, [location]);
   return (
@@ -19,7 +19,7 @@ const HomeDesignSystem = (props: Props) => {
               Button Components
             </Button>
           </Link>
-          <Link to={`${location.pathname}`}>
+          <Link to={`${location.pathname}/form`}>
             <Button variant='primary' size='base'>
               Form Components
             </Button>
@@ -30,4 +30,4 @@ const HomeDesignSystem = (props: Props) => {
   );
 };
 
-export default memo(HomeDesignSystem);
+export default React.memo(HomeDesignSystem);
