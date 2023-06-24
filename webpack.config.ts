@@ -138,12 +138,12 @@ const config = (): Configuration => {
             to: "icon-512x512.png",
           },
           {
-            from: "public/icon-256x256",
-            to: "icon-256x256",
+            from: "public/icon-256x256.png",
+            to: "icon-256x256.png",
           },
           {
-            from: "public/icon-384x384",
-            to: "icon-384x384",
+            from: "public/icon-384x384.png",
+            to: "icon-384x384.png",
           },
         ],
       }),
