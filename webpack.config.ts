@@ -6,7 +6,6 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpackDevServer from "webpack-dev-server";
 import TerserPlugin from "terser-webpack-plugin";
 import { GenerateSW } from "workbox-webpack-plugin";
-import BrotliPlugin from "brotli-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const IMAGE_SIZE_LIMIT = 10 * 1024; // 10kb
@@ -111,12 +110,6 @@ const config = (): Configuration => {
         filename: "static/css/[name].[contenthash:8].css",
         chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
       }),
-      new BrotliPlugin({
-        asset: "[path].br[query]",
-        test: /\.(js|css|html|svg)$/,
-        threshold: 10240,
-        minRatio: 0.8,
-      }) as any,
       // new WebpackManifestPlugin({
       //   fileName: "manifest.json",
       //   publicPath: "/",
