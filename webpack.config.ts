@@ -145,15 +145,18 @@ const config = (): Configuration => {
     ],
     performance: {
       hints: false,
+      maxAssetSize: 100000 * 24,
+      maxEntrypointSize: 100000 * 24,
     },
     optimization: {
       minimize: true,
       usedExports: true,
+      
       splitChunks: {
         chunks: "all",
         maxAsyncRequests: 10,
-        maxSize: 100000 * 24,
-        maxAsyncSize: 100000,
+        maxSize: 100000,
+        // maxAsyncSize: 100000,
         maxInitialRequests: 10,
         cacheGroups: {
           commons: {
@@ -185,7 +188,7 @@ const config = (): Configuration => {
             format: {
               comments: false,
             },
-            ecma: 2016,
+            ecma: 5,
             keep_classnames: false,
             enclose: true,
             module: true,
