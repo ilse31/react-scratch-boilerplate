@@ -11,9 +11,9 @@ const HomeDesignSystem = (props: Props) => {
   }, [location]);
   return (
     <>
-      <div className='flex flex-col'>
+      <div className='flex flex-col items-center gap-4'>
         <h1>Design System</h1>
-        <div className='flex flex-row gap-3'>
+        <div className='flex flex-row gap-3 justify-center'>
           <Link to={`${location.pathname}/buttons`}>
             <Button variant='primary' size='base'>
               Button Components

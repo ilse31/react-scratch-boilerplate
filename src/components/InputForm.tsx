@@ -29,6 +29,7 @@ export type InputProps = {
   rightNode?: React.ReactNode;
   containerClassName?: string;
   errorMessage?: string;
+  variant?: "outline" | "solid" | "underlined";
 } & React.ComponentPropsWithoutRef<"input">;
 
 export default function Input({
@@ -45,6 +46,7 @@ export default function Input({
   containerClassName,
   errorMessage,
   color = "sky",
+  variant = "outline",
   ...rest
 }: InputProps) {
   const withLabel = label !== null;
@@ -74,11 +76,103 @@ export default function Input({
           readOnly={readOnly}
           disabled={disabled}
           className={clsx(
-            "flex w-full rounded-lg shadow-sm",
+            "flex w-full",
             "min-h-[2.25rem] py-0 md:min-h-[2.5rem]",
-            `border-gray-300 focus:border-${color}-500 focus:ring-${color}-500`,
             (readOnly || disabled) && LeftIcon && "pl-9",
-            rightNode && "pr-10"
+            rightNode && "pr-10",
+            variant === "outline" && [
+              color === "sky" && [
+                " focus:border-sky-500 focus:ring-sky-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "pink" && [
+                " focus:border-pink-500 focus:ring-pink-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "green" && [
+                " focus:border-green-500 focus:ring-green-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "yellow" && [
+                " focus:border-yellow-500 focus:ring-yellow-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "red" && [
+                " focus:border-red-500 focus:ring-red-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "purple" && [
+                " focus:border-purple-500 focus:ring-purple-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "blue" && [
+                " focus:border-blue-500 focus:ring-blue-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "indigo" && [
+                " focus:border-indigo-500 focus:ring-indigo-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "gray" && [
+                " focus:border-gray-500 focus:ring-gray-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+              color === "indigo" && [
+                " focus:border-indigo-500 focus:ring-indigo-500 border-gray-300 rounded-lg shadow-sm",
+              ],
+            ],
+            variant === "solid" && [
+              color === "sky" && [
+                " bg-sky-50 border-transparent focus:border-sky-500 focus:ring-sky-500 rounded-lg shadow-sm",
+              ],
+              color === "pink" && [
+                " bg-pink-50 border-transparent focus:border-pink-500 focus:ring-pink-500 rounded-lg shadow-sm",
+              ],
+              color === "green" && [
+                " bg-green-50 border-transparent focus:border-green-500 focus:ring-green-500 rounded-lg shadow-sm",
+              ],
+              color === "yellow" && [
+                " bg-yellow-50 border-transparent focus:border-yellow-500 focus:ring-yellow-500 rounded-lg shadow-sm",
+              ],
+              color === "red" && [
+                " bg-red-50 border-transparent focus:border-red-500 focus:ring-red-500 rounded-lg shadow-sm",
+              ],
+              color === "purple" && [
+                " bg-purple-50 border-transparent focus:border-purple-500 focus:ring-purple-500 rounded-lg shadow-sm",
+              ],
+              color === "blue" && [
+                " bg-blue-50 border-transparent focus:border-blue-500 focus:ring-blue-500 rounded-lg shadow-sm",
+              ],
+              color === "indigo" && [
+                " bg-indigo-50 border-transparent focus:border-indigo-500 focus:ring-indigo-500 rounded-lg shadow-sm",
+              ],
+              color === "cyan" && [
+                " bg-cyan-50 border-transparent focus:border-cyan-500 focus:ring-cyan-500 rounded-lg shadow-sm",
+              ],
+              color === "emerald" && [
+                " bg-emerald-50 border-transparent focus:border-emerald-500 focus:ring-emerald-500 rounded-lg shadow-sm",
+              ],
+            ],
+            variant === "underlined" && [
+              color === "sky" && [
+                " focus:border-b-sky-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "pink" && [
+                " focus:border-b-pink-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "green" && [
+                " focus:border-b-green-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "yellow" && [
+                " focus:border-b-yellow-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "red" && [
+                " focus:border-b-red-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "purple" && [
+                " focus:border-b-purple-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "blue" && [
+                " focus:border-b-blue-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "indigo" && [
+                " focus:border-b-indigo-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+              color === "cyan" && [
+                " focus:border-b-cyan-500 border-b-2 border-0 border-gray-200 focus:outline-none focus:ring-0",
+              ],
+            ]
           )}
           placeholder={placeholder}
           aria-describedby={id}

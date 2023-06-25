@@ -170,6 +170,11 @@ const config = (): Configuration => {
             chunks: "all",
             reuseExistingChunk: false,
           },
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
         },
       },
       minimizer: [

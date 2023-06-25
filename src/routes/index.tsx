@@ -1,11 +1,13 @@
-import React, { lazy } from "react";
+import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 
-const Home = lazy(() => import("../pages/app/Home"));
-const HomeDesignSystem = lazy(() => import("../pages/design/HomeDesignSystem"));
-const DesignSystem = lazy(() => import("../layouts/DesignSystem"));
-const ButtonsPages = lazy(() => import("../pages/design/ButtonsPages"));
-const FormPages = lazy(() => import("../pages/design/Formpages"));
+const Home = React.lazy(() => import("../pages/app/Home"));
+const HomeDesignSystem = React.lazy(
+  () => import("../pages/design/HomeDesignSystem")
+);
+const DesignSystem = React.lazy(() => import("../layouts/DesignSystem"));
+const ButtonsPages = React.lazy(() => import("../pages/design/ButtonsPages"));
+const FormPages = React.lazy(() => import("../pages/design/Formpages"));
 type Props = {};
 
 const Routed = (props: Props) => {

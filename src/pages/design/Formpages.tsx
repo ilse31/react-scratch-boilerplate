@@ -4,13 +4,14 @@ import Input from "src/components/InputForm";
 import { LoginValidation } from "src/constant/validations/DesignSystemForm";
 import { LoginValues } from "src/constant/FormikValues/DesignSystemFormValues";
 import Button from "src/components/Button";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Formpages = (props: Props) => {
+  const navigate = useNavigate();
   return (
-    <div className='flex flex-col gap-5'>
-      <h1>Form Pages</h1>
+    <div className='flex justify-center'>
       <Formik
         initialValues={LoginValues}
         onSubmit={(values) => {
@@ -19,10 +20,12 @@ const Formpages = (props: Props) => {
         validationSchema={LoginValidation}
       >
         {({ values, handleChange, handleSubmit, errors }) => (
-          <form onSubmit={handleSubmit}>
+          <form className=' w-1/3 gap-3 flex-col flex' onSubmit={handleSubmit}>
             <Input
+              color='sky'
               id='username'
               label='Username'
+              variant='underlined'
               onChange={handleChange}
               value={values.username}
               errorMessage={errors.username}
@@ -33,6 +36,8 @@ const Formpages = (props: Props) => {
             />
             <Input
               id='password'
+              variant='underlined'
+              color='sky'
               label='Password'
               onChange={handleChange}
               placeholder='Password'
@@ -42,9 +47,20 @@ const Formpages = (props: Props) => {
               name='password'
               type='password'
             />
-            <Button variant='sky' type='submit'>
-              send
-            </Button>
+            <div className='flex-col flex gap-3'>
+              <Button
+                onClick={() => {
+                  navigate("/design-system");
+                }}
+                variant='danger'
+                type='submit'
+              >
+                back
+              </Button>
+              <Button variant='sky' type='submit'>
+                send
+              </Button>
+            </div>
           </form>
         )}
       </Formik>
