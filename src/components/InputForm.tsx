@@ -44,6 +44,7 @@ export default function Input({
   rightNode,
   containerClassName,
   errorMessage,
+  color = "sky",
   ...rest
 }: InputProps) {
   const withLabel = label !== null;
@@ -75,7 +76,7 @@ export default function Input({
           className={clsx(
             "flex w-full rounded-lg shadow-sm",
             "min-h-[2.25rem] py-0 md:min-h-[2.5rem]",
-            "border-gray-300 focus:border-primary-500 focus:ring-primary-500",
+            `border-gray-300 focus:border-${color}-500 focus:ring-${color}-500`,
             (readOnly || disabled) && LeftIcon && "pl-9",
             rightNode && "pr-10"
           )}
