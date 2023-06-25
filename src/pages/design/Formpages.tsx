@@ -1,9 +1,9 @@
 import { Formik } from "formik";
 import { FiSave } from "react-icons/fi";
-import Input from "src/components/InputForm";
+import Input from "src/components/Form/InputForm";
 import { LoginValidation } from "src/constant/validations/DesignSystemForm";
 import { LoginValues } from "src/constant/FormikValues/DesignSystemFormValues";
-import Button from "src/components/Button";
+import Button from "src/components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 type Props = {};

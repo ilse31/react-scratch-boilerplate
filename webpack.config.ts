@@ -94,13 +94,13 @@ const config = (): Configuration => {
         cache: false,
         inject: true,
       }),
-      // isDevelopment
-      //   ? null
-      //   : new GenerateSW({
-      //       clientsClaim: true,
-      //       skipWaiting: true,
-      //       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-      //     }),
+      isDevelopment
+        ? null
+        : new GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+          }),
       new DefinePlugin({
         "process.env.PUBLIC_URL": JSON.stringify(
           "https://bejewelled-starlight-7d6def.netlify.app/"
@@ -110,10 +110,6 @@ const config = (): Configuration => {
         filename: "static/css/[name].[contenthash:8].css",
         chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
       }),
-      // new WebpackManifestPlugin({
-      //   fileName: "manifest.json",
-      //   publicPath: "/",
-      // }),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -156,6 +152,8 @@ const config = (): Configuration => {
       splitChunks: {
         chunks: "all",
         maxAsyncRequests: 10,
+        maxSize: 100000 * 24,
+        maxAsyncSize: 100000,
         maxInitialRequests: 10,
         cacheGroups: {
           commons: {
@@ -187,10 +185,11 @@ const config = (): Configuration => {
             format: {
               comments: false,
             },
-            ecma: 2015,
+            ecma: 2016,
             keep_classnames: false,
             enclose: true,
-            parse: {},
+            module: true,
+            sourceMap: true,
             compress: {
               drop_console: true,
               loops: true,

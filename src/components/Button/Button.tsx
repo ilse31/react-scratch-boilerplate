@@ -74,8 +74,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               "text-xs md:text-sm",
             ],
           ],
-          //#endregion  //*======== Size ===========
-          //#region  //*=========== Variants ===========
           [
             variant === "primary" && [
               "bg-primary-500 text-white",

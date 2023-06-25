@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkreact_scratch_boilerplate"] = self["webpackChunkreact_scratch_boilerplate"] || []).push([[382],{
+(self["webpackChunkreact_scratch_boilerplate"] = self["webpackChunkreact_scratch_boilerplate"] || []).push([[56],{
 
 /***/ 8851:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -29,18 +29,29 @@ function clsxm(){return (0,tailwind_merge__WEBPACK_IMPORTED_MODULE_0__/* .twMerg
 
 /***/ }),
 
-/***/ 2382:
+/***/ 9056:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7294);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9250);
-/* harmony import */ var src_components_Button_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8851);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5893);
-var ButtonsPages=function ButtonsPages(props){var navigate=(0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__/* .useNavigate */ .s0)();return/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div",{className:"flex flex-col justify-center items-center gap-5 w-full",children:/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div",{className:"flex flex-row gap-3",children:[/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(src_components_Button_Button__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z,{variant:"danger",size:"base",onClick:function onClick(){return navigate("/");},children:"BACK TO HOME"}),/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(src_components_Button_Button__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z,{variant:"primary",size:"base",onClick:function onClick(){return navigate("/design-system");},children:"BACK"})]})});};/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(ButtonsPages));
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ layouts_DesignSystem)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/react-router/dist/index.js
+var dist = __webpack_require__(9250);
+// EXTERNAL MODULE: ./src/components/Button/Button.tsx
+var Button = __webpack_require__(8851);
+;// CONCATENATED MODULE: ./src/helpers/localstorage.ts
+var getLocalStorage=function getLocalStorage(key){var value=localStorage.getItem(key);if(value){return JSON.parse(value);}return null;};var setLocalStorage=function setLocalStorage(key,value){var valueString=JSON.stringify(value);if(value)return localStorage.setItem(key,valueString);return null;};
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+;// CONCATENATED MODULE: ./src/layouts/DesignSystem.tsx
+function _slicedToArray(arr,i){return _arrayWithHoles(arr)||_iterableToArrayLimit(arr,i)||_unsupportedIterableToArray(arr,i)||_nonIterableRest();}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o,minLen){if(!o)return;if(typeof o==="string")return _arrayLikeToArray(o,minLen);var n=Object.prototype.toString.call(o).slice(8,-1);if(n==="Object"&&o.constructor)n=o.constructor.name;if(n==="Map"||n==="Set")return Array.from(o);if(n==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return _arrayLikeToArray(o,minLen);}function _arrayLikeToArray(arr,len){if(len==null||len>arr.length)len=arr.length;for(var i=0,arr2=new Array(len);i<len;i++)arr2[i]=arr[i];return arr2;}function _iterableToArrayLimit(arr,i){var _i=null==arr?null:"undefined"!=typeof Symbol&&arr[Symbol.iterator]||arr["@@iterator"];if(null!=_i){var _s,_e,_x,_r,_arr=[],_n=!0,_d=!1;try{if(_x=(_i=_i.call(arr)).next,0===i){if(Object(_i)!==_i)return;_n=!1;}else for(;!(_n=(_s=_x.call(_i)).done)&&(_arr.push(_s.value),_arr.length!==i);_n=!0);}catch(err){_d=!0,_e=err;}finally{try{if(!_n&&null!=_i["return"]&&(_r=_i["return"](),Object(_r)!==_r))return;}finally{if(_d)throw _e;}}return _arr;}}function _arrayWithHoles(arr){if(Array.isArray(arr))return arr;}var DesignSystem=function DesignSystem(props){var _React$useState=react.useState("dark"),_React$useState2=_slicedToArray(_React$useState,2),darkMode=_React$useState2[0],setDarkMode=_React$useState2[1];var handleDarkMode=function handleDarkMode(){darkMode==="light"?setDarkMode("dark"):setDarkMode("light");};react.useEffect(function(){setLocalStorage("darkMode",darkMode);var localstorageDarkMode=getLocalStorage("darkMode");localstorageDarkMode==="dark"?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark");},[darkMode]);return/*#__PURE__*/(0,jsx_runtime.jsxs)("div",{className:"bg-white dark:bg-slate-700 min-h-screen",children:[/*#__PURE__*/(0,jsx_runtime.jsx)("div",{className:"flex justify-center mb-5",children:/*#__PURE__*/(0,jsx_runtime.jsxs)(Button/* default */.Z,{size:"lg",variant:"indigo",onClick:handleDarkMode,children:["set dark mode to ",darkMode]})}),/*#__PURE__*/(0,jsx_runtime.jsx)("div",{className:"w-full h-full",children:/*#__PURE__*/(0,jsx_runtime.jsx)(dist/* Outlet */.j3,{})})]});};/* harmony default export */ const layouts_DesignSystem = (DesignSystem);
 
 /***/ })
 

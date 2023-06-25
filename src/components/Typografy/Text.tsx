@@ -86,6 +86,7 @@ const Typography: TypographyComponent = React.forwardRef(
       <Component
         ref={ref}
         className={clsxm(
+          "dark:text-white",
           //#region  //*=========== Variants ===========
           [
             variant === "j1" && ["font-averta text-4xl font-bold"],

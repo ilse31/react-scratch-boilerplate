@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
 import { IconType } from "react-icons";
-import Typography from "./Text";
+import Typography from "../Typografy/Text";
 
 export type InputProps = {
   /** Input label */
