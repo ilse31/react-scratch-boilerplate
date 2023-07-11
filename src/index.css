@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  @apply text-white
+  @apply text-white;
 }
 
 .App-link {
@@ -48,7 +48,6 @@
   /* #0C0750 */
   /* #endregion  /**======== Primary Color =========== */
 }
-
 
 h1 {
   @apply text-4xl;

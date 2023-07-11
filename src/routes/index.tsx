@@ -8,17 +8,19 @@ const HomeDesignSystem = React.lazy(
 const DesignSystem = React.lazy(() => import("../layouts/DesignSystem"));
 const ButtonsPages = React.lazy(() => import("../pages/design/ButtonsPages"));
 const FormPages = React.lazy(() => import("../pages/design/Formpages"));
+const AlertPages = React.lazy(() => import("../pages/design/AlertPages"));
 type Props = {};
 
 const Routed = (props: Props) => {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route element={<DesignSystem />}>
-        <Route path='/design-system'>
+        <Route path="/design-system">
           <Route index element={<HomeDesignSystem />} />
-          <Route path='buttons' element={<ButtonsPages />} />
-          <Route path='form' element={<FormPages />} />
+          <Route path="buttons" element={<ButtonsPages />} />
+          <Route path="form" element={<FormPages />} />
+          <Route path="alerts" element={<AlertPages />} />
         </Route>
       </Route>
     </Routes>

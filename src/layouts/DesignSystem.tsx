@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Outlet } from "react-router-dom";
 import Button from "src/components/Button/Button";
+import changeTheme from "src/helpers/darkMode";
 import { getLocalStorage, setLocalStorage } from "src/helpers/localstorage";
 
 type Props = {};
@@ -14,10 +15,7 @@ const DesignSystem = (props: Props) => {
 
   React.useEffect(() => {
     setLocalStorage("darkMode", darkMode);
-    const localstorageDarkMode = getLocalStorage("darkMode");
-    localstorageDarkMode === "dark"
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark");
+    changeTheme();
   }, [darkMode]);
 
   return (
