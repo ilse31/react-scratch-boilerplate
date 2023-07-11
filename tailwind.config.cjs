@@ -92,11 +92,29 @@ module.exports = {
             backgroundPosition: "700px 0",
           },
         },
+        swoosh_from_top: {
+          "0%": {
+            transform: "translate(0,-100px)",
+          },
+          "100%": {
+            transform: "translate(0,0)",
+          },
+        },
+        swoosh_from_bottom: {
+          "0%": {
+            transform: "translate(0,100px)",
+          },
+          "100%": {
+            transform: "translate(0,0)",
+          },
+        },
       },
       animation: {
         typing: "typing 3s steps(40) infinite alternate, blink .10s infinite",
         flicker: "flicker 3s linear infinite",
         shimmer: "shimmer 1.3s linear infinite",
+        swoosh_from_top: "swoosh_from_top .5s",
+        swoosh_from_bottom: "swoosh_from_bottom .5s",
       },
     },
   },
