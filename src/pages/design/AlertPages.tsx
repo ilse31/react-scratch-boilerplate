@@ -5,7 +5,7 @@ import Button from "src/components/Button/Button";
 
 type Props = {
   direction?: string;
-  variant?: string;
+  variant?: "success" | "warning" | "error";
   message?: string;
 };
 
@@ -20,7 +20,11 @@ const AlertPages = (props: Props) => {
   //   setActiveAlert(active);
   // };
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLInputElement>
+  ): void => {
     e.preventDefault();
     setAlertFields({
       ...alertFields,
@@ -132,82 +136,44 @@ const AlertPages = (props: Props) => {
           </Button>
         </form>
       </div>
-      {/* <div className="flex gap-5">
-        <Button
-          onClick={() => handleAlert("top-right")}
-          disabled={Boolean(activeAlert)}
-        >
-          Top Right
-        </Button>
-        <Button
-          onClick={() => handleAlert("top-left")}
-          disabled={Boolean(activeAlert)}
-        >
-          Top Left
-        </Button>
-        <Button
-          onClick={() => handleAlert("middle-top")}
-          disabled={Boolean(activeAlert)}
-        >
-          Middle Top
-        </Button>
-        <Button
-          onClick={() => handleAlert("middle-bottom")}
-          disabled={Boolean(activeAlert)}
-        >
-          Middle Bottom
-        </Button>
-        <Button
-          onClick={() => handleAlert("bottom-left")}
-          disabled={Boolean(activeAlert)}
-        >
-          Bottom Left
-        </Button>
-        <Button
-          onClick={() => handleAlert("bottom-right")}
-          disabled={Boolean(activeAlert)}
-        >
-          Bottom Right
-        </Button>
-      </div> */}
       {showAlert && alertFields?.direction === "top-right" && (
         <Alert
-          text={alertFields?.message}
+          text={alertFields?.message as string}
           variant={alertFields?.variant}
           direction={alertFields?.direction}
         />
       )}
       {showAlert && alertFields?.direction === "top-left" && (
         <Alert
-          text={alertFields?.message}
+          text={alertFields?.message as string}
           variant={alertFields?.variant}
           direction={alertFields?.direction}
         />
       )}
       {showAlert && alertFields?.direction === "middle-top" && (
         <Alert
-          text={alertFields?.message}
+          text={alertFields?.message as string}
           variant={alertFields?.variant}
           direction={alertFields?.direction}
         />
       )}
       {showAlert && alertFields?.direction === "middle-bottom" && (
         <Alert
-          text={alertFields?.message}
+          text={alertFields?.message as string}
           variant={alertFields?.variant}
           direction={alertFields?.direction}
         />
       )}
       {showAlert && alertFields?.direction === "bottom-left" && (
         <Alert
-          text={alertFields?.message}
+          text={alertFields?.message as string}
           variant={alertFields?.variant}
           direction={alertFields?.direction}
         />
       )}
       {showAlert && alertFields?.direction === "bottom-right" && (
         <Alert
-          text={alertFields?.message}
+          text={alertFields?.message as string}
           variant={alertFields?.variant}
           direction={alertFields?.direction}
         />
