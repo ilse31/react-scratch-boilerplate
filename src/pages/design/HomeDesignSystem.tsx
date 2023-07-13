@@ -25,6 +25,11 @@ const HomeDesignSystem = (props: Props) => {
             Alert Components
           </Button>
         </Link>
+        <Link to={`${location.pathname}/modals`}>
+          <Button variant="primary" size="base">
+            Modals Components
+          </Button>
+        </Link>
       </div>
     </div>
   );

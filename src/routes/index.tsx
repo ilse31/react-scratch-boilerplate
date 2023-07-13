@@ -9,6 +9,7 @@ const DesignSystem = React.lazy(() => import("../layouts/DesignSystem"));
 const ButtonsPages = React.lazy(() => import("../pages/design/ButtonsPages"));
 const FormPages = React.lazy(() => import("../pages/design/Formpages"));
 const AlertPages = React.lazy(() => import("../pages/design/AlertPages"));
+const ModalPages = React.lazy(() => import("../pages/design/ModalPages"));
 type Props = {};
 
 const Routed = (props: Props) => {
@@ -21,6 +22,7 @@ const Routed = (props: Props) => {
           <Route path="buttons" element={<ButtonsPages />} />
           <Route path="form" element={<FormPages />} />
           <Route path="alerts" element={<AlertPages />} />
+          <Route path="modals" element={<ModalPages />} />
         </Route>
       </Route>
     </Routes>
