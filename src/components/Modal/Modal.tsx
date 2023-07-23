@@ -1,7 +1,6 @@
 import React, { SetStateAction } from "react";
 import clsxm from "src/helpers/clsx";
 import { MdOutlineClose } from "react-icons/md";
-import "./modal.css";
 
 type Props = {
   title: string;
