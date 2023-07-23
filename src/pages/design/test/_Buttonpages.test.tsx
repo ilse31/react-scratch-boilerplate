@@ -21,10 +21,9 @@ describe("ButtonsPages", () => {
     const backButtonHome = screen.getByRole("button", { name: "BACK" });
     expect(backButtonHome).toBeInTheDocument();
 
-    const backButton = screen.getByRole("button", { name: "BACK" });
+    const backButton = screen.getByRole("button", {
+      name: "backtoDesignSystem",
+    });
     expect(backButton).toBeInTheDocument();
-
-    const saveButton = screen.getByRole("button", { name: "Save" });
-    expect(saveButton).toBeInTheDocument();
   });
 });

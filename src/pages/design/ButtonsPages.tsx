@@ -20,6 +20,7 @@ const ButtonsPages = (props: Props) => {
         <Button
           variant='primary'
           size='base'
+          name='backtoDesignSystem'
           onClick={() => navigate("/design-system")}
         >
           BACK
