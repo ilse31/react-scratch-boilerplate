@@ -18,7 +18,7 @@ describe("ButtonsPages", () => {
       </MemoryRouter>
     );
 
-    const backButtonHome = screen.getByRole("link", { name: "BACK TO HOME" });
+    const backButtonHome = screen.getByRole("button", { name: "BACK" });
     expect(backButtonHome).toHaveAttribute("href", "/design-system");
 
     const backButton = screen.getByRole("link", { name: "BACK" });

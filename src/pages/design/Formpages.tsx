@@ -47,6 +47,19 @@ const Formpages = (props: Props) => {
               name='password'
               type='password'
             />
+            <Input
+              id='confirmPassword'
+              variant='underlined'
+              color='sky'
+              label='Password'
+              onChange={handleChange}
+              placeholder='Password'
+              value={values.confirmPassword}
+              errorMessage={errors.confirmPassword}
+              about='This is the password field'
+              name='password'
+              type='password'
+            />
             <div className='flex-col flex gap-3'>
               <Button
                 onClick={() => {
