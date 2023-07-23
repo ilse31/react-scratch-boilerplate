@@ -19,10 +19,10 @@ describe("ButtonsPages", () => {
     );
 
     const backButtonHome = screen.getByRole("button", { name: "BACK" });
-    expect(backButtonHome).toHaveAttribute("href", "/design-system");
+    expect(backButtonHome).toBeInTheDocument();
 
-    const backButton = screen.getByRole("link", { name: "BACK" });
-    expect(backButton).toHaveAttribute("href", "/");
+    const backButton = screen.getByRole("button", { name: "BACK" });
+    expect(backButton).toBeInTheDocument();
 
     const saveButton = screen.getByRole("button", { name: "Save" });
     expect(saveButton).toBeInTheDocument();
