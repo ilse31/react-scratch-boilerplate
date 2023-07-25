@@ -11,4 +11,8 @@ export const LoginValidation = Yup.object({
     .min(5, "Must be 5 characters or less")
     .max(10, "Must be 10 characters or less")
     .trim("Password cannot contain whitespace. Please remove the whitespace."),
+  confirmPassword: Yup.string()
+    .required("Required")
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .trim("Password cannot contain whitespace. Please remove the whitespace."),
 });

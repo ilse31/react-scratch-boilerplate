@@ -9,12 +9,18 @@ const ButtonsPages = (props: Props) => {
   return (
     <div className='flex flex-col justify-center items-center gap-5 w-full'>
       <div className='flex flex-row gap-3'>
-        <Button variant='danger' size='base' onClick={() => navigate("/")}>
+        <Button
+          variant='danger'
+          name='back'
+          size='base'
+          onClick={() => navigate("/")}
+        >
           BACK TO HOME
         </Button>
         <Button
           variant='primary'
           size='base'
+          name='backtoDesignSystem'
           onClick={() => navigate("/design-system")}
         >
           BACK
