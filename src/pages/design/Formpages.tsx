@@ -22,6 +22,7 @@ const Formpages = (props: Props) => {
         {({ values, handleChange, handleSubmit, errors }) => (
           <form className=' w-1/3 gap-3 flex-col flex' onSubmit={handleSubmit}>
             <Input
+              leftIcon='Search'
               color='sky'
               id='username'
               label='Username'
